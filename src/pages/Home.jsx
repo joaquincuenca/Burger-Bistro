@@ -2,7 +2,7 @@ import Header from '../components/Header';
 
 const Home = () => {
     return (
-        <div className="min-h-screen flex flex-col bg-gradient-to-br from-white to-pink-50">
+        <div id = 'home' className="min-h-screen flex flex-col bg-gradient-to-br from-white to-pink-50">
         <Header />
 
         <main className="flex flex-col md:flex-row items-center justify-between px-8 md:px-20 py-16 gap-10">

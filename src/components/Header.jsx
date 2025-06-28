@@ -18,12 +18,6 @@ const Header = () => {
             >
             Menu
             </a>
-            <a
-            href="/cart"
-            className="text-gray-700 hover:text-pink-600 font-medium transition-colors px-2"
-            >
-            Cart
-            </a>
         </nav>
         </header>
     );
