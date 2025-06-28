@@ -26,21 +26,20 @@ const Menu = () => {
     const confirmAddToCart = () => {
         if (!selectedProduct) return;
 
-        const existing = cart.find(item => item.id === selectedProduct.id);
-        if (existing) {
-            setCart(prev =>
-                prev.map(item =>
-                    item.id === selectedProduct.id
-                        ? { ...item, quantity: item.quantity + quantity }
-                        : item
-                )
-            );
+        const updatedCart = [...cart];
+        const index = updatedCart.findIndex(item => item.id === selectedProduct.id);
+
+        if (index !== -1) {
+            updatedCart[index].quantity += quantity;
         } else {
-            setCart(prev => [...prev, { ...selectedProduct, quantity }]);
+            updatedCart.push({ ...selectedProduct, quantity });
         }
 
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart)); // 🔐 Save to localStorage
         setShowModal(false);
     };
+
 
     const increaseQty = () => setQuantity(prev => prev + 1);
     const decreaseQty = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
